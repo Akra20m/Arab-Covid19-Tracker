@@ -20,29 +20,29 @@ client.on('error', function (error) {
   console.error(error);
 });
 
-const countryCodes = [
-  'DZ',
-  'BH',
-  'KM',
-  'DJ',
-  'EG',
-  'IQ',
-  'JO',
-  'KW',
-  'LB',
-  'LY',
-  'MR',
-  'MA',
-  'OM',
-  'PS',
-  'QA',
-  'SA',
-  'SO',
-  'SD',
-  'SY',
-  'TN',
-  'AE',
-  'YE'
+const slug = [
+  'algeria',
+  'bahrain',
+  'comoros',
+  'djibouti',
+  'egypt',
+  'iraq',
+  'jordan',
+  'kuwait',
+  'lebanon',
+  'libya',
+  'mauritania',
+  'morocco',
+  'oman',
+  'palestine',
+  'qatar',
+  'saudi-arabia',
+  'somalia',
+  'sudan',
+  'syria',
+  'tunisia',
+  'united-arab-emirates',
+  'yemen'
 ];
 
 // const mongoose = require('mongoose');
@@ -59,7 +59,7 @@ app.use(cors());
 app.use(json());
 // app.use(authRoute);
 
-cron.schedule('*/30 * * * *', () => {
+cron.schedule('0 * * * *', () => {
   console.log('running a task every minute');
   let result = Axios.get('https://api.covid19api.com/summary')
     .then((res) => {
@@ -67,7 +67,7 @@ cron.schedule('*/30 * * * *', () => {
       let modifiedCountries = {};
 
       Countries.forEach((item) => {
-        if (countryCodes.includes(item.CountryCode)) {
+        if (slug.includes(item.Slug)) {
           modifiedCountries[item.Country] = item;
         }
       });
