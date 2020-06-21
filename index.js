@@ -65,6 +65,7 @@ cron.schedule('0 * * * *', () => {
     .then((res) => {
       const { Countries } = res.data;
       let modifiedCountries = {};
+      let now = new Date();
 
       Countries.forEach((item) => {
         if (slug.includes(item.Slug)) {
@@ -74,7 +75,7 @@ cron.schedule('0 * * * *', () => {
 
       const msg = client.set(
         'key',
-        JSON.stringify(modifiedCountries),
+        JSON.stringify({ modifiedCountries, dateNow: now }),
         redis.print
       );
     })
