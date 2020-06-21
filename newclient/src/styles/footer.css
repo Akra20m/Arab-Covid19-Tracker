@@ -1,0 +1,43 @@
+:root {
+  --secondary-bg-color: #2c7873;
+  --secondary-bg-color-1: #393e46;
+  --secondary-txt-color: white;
+}
+
+footer {
+  margin: 0 auto;
+  margin-top: 20px;
+  border-top: 1px solid white;
+}
+
+.footer-container {
+  background: var(--secondary-bg-color);
+}
+
+.footer-container.style1 {
+  background: var(--secondary-bg-color-1);
+}
+
+.footer-custom {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 15px 5%;
+  /* min-height: 10vh; */
+  max-width: 1440px;
+}
+
+.footer-custom > p {
+  font-size: 20px;
+}
+
+.footer-custom a {
+  text-decoration: none;
+  color: var(--secondary-txt-color);
+  margin: 0 5px;
+}
+
+.footer-custom span {
+  color: var(--secondary-txt-color);
+  margin: 0 5px;
+}

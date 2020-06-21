@@ -1,0 +1,56 @@
+:root {
+  --secondary-bg-color: #2c7873;
+  --secondary-bg-color-1: #393e46;
+  --secondary-txt-color: white;
+}
+
+header {
+  margin: 0 auto;
+}
+
+nav {
+  background: var(--secondary-bg-color);
+}
+
+nav.style1 {
+  background: var(--secondary-bg-color-1);
+}
+
+.nav-custom {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 15px 5%;
+  max-width: 1440px;
+}
+.nav-custom > p {
+  font-size: 20px;
+}
+
+.page-title h1 {
+  text-align: center;
+  color: var(--secondary-txt-color);
+  margin: 20px auto;
+}
+
+.theme-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-item {
+  width: 25px;
+  height: 25px;
+  margin-right: 7px;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.theme-item.first-theme {
+  background-color: #004445;
+}
+
+.theme-item.second-theme {
+  background-color: #393e46;
+}
