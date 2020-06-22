@@ -8,7 +8,9 @@ const redis = require('redis');
 const PORT = process.env.PORT || 5000;
 const REDIS_PORT = process.env.PORT || 6379;
 
-// require('dotenv').config({ path: './.env' });
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config({ path: './.env' });
+}
 
 const client = redis.createClient(
   process.env.REDIS_PORT,
