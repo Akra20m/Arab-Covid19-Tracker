@@ -20,16 +20,16 @@ const MainData = () => {
     setRecovered(result[2]);
   }, []);
   return (
-    <div className={'data-container ' + currentStyle}>
-      <div className='data-col'>
+    <div className='data-container'>
+      <div className={'data-col ' + currentStyle}>
         <h2>إجمالي الإصابات</h2>
         <p>{cases.toLocaleString('ar-EG')}</p>
       </div>
-      <div className='data-col'>
+      <div className={'data-col ' + currentStyle}>
         <h2>إجمالي المتعافين</h2>
         <p>{recovered.toLocaleString('ar-EG')}</p>
       </div>
-      <div className='data-col'>
+      <div className={'data-col ' + currentStyle}>
         <h2>إجمالي الوفيات</h2>
         <p>{deaths.toLocaleString('ar-EG')}</p>
       </div>

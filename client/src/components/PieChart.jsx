@@ -48,7 +48,6 @@ class PieChart extends React.Component {
   render() {
     return (
       <div className={'piechart-container ' + this.context.currentStyle}>
-        <h2>نسبة الإصابات لكل دولة</h2>
         <div className='piechart-custom' id='piechartdiv'></div>
       </div>
     );
