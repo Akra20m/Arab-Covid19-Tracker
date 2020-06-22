@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React from 'react';
 import NewMap from './NewMap';
 import PieChart from './PieChart';
 import TwitterFeed from './TwitterFeed';

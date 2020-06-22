@@ -45,22 +45,12 @@ const slug = [
   'yemen'
 ];
 
-// const mongoose = require('mongoose');
-
-// const { authRoute } = require('./src/routes/auth');
-
-// const path = require('path');
-// const User = require('./src/models/user');
-
-// require('dotenv').config({ path: '../.env' });
-
 const app = express();
 app.use(cors());
 app.use(json());
-// app.use(authRoute);
 
-cron.schedule('0 * * * *', () => {
-  console.log('running a task every minute');
+cron.schedule('0 */2 * * *', () => {
+  //running a task at minute 0 past every 2nd hour.
   let result = Axios.get('https://api.covid19api.com/summary')
     .then((res) => {
       const { Countries } = res.data;
@@ -84,36 +74,24 @@ cron.schedule('0 * * * *', () => {
     });
 });
 
-app.get('/', (req, res) => {
+app.get('/api/', (req, res) => {
   client.get('key', (err, reply) => {
     res.send(reply);
   });
 });
 
-// app.all('/api/*', (req, res) => {
-//   res.status(404).send({ msg: 'Not Found' });
-// });
+app.all('/api/*', (req, res) => {
+  res.status(404).send({ msg: 'Not Found' });
+});
 
-// try {
-//   mongoose.connect(
-//     process.env.DB_URL,
-//     { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
-//     () => {
-//       console.log('connected to db');
-//     }
-//   );
-// } catch (err) {
-//   console.error(err);
-// }
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
 
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static('client/build'));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
-//   app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-//   });
-// }
-
-app.listen(process.env.PORT || 4000, () => {
-  console.log('listening on port 4000');
+app.listen(PORT, () => {
+  console.log('listening on port 5000');
 });

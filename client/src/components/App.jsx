@@ -15,7 +15,7 @@ const App = () => {
 
   const getData = async () => {
     try {
-      const response = await Axios.get('http://localhost:4000');
+      const response = await Axios.get('/api/');
       const { modifiedCountries, dateNow } = response.data;
       setDateNow(dateNow);
       setCountries(Object.values(modifiedCountries));

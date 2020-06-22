@@ -65,17 +65,13 @@ class NewMap extends React.Component {
     heatLegend.padding(20, 20, 20, 20);
     heatLegend.valueAxis.renderer.labels.template.fontSize = 10;
     heatLegend.valueAxis.renderer.labels.template.fill = am4core.color('#fff');
-
     heatLegend.valueAxis.renderer.minGridDistance = 40;
 
     map.series.push(polygonSeries);
     let polygonTemplate = polygonSeries.mapPolygons.template;
     polygonTemplate.tooltipText = `[bold]{name}[/]
     الإصابات {TotalConfirmed}\nالمتعافين {TotalRecovered}\nالوفيات {TotalDeaths}`;
-    // polygonTemplate.fill = am4core.color('#74B266');
-    // Create hover state and set alternative fill color
     let hs = polygonTemplate.states.create('hover');
-    // hs.properties.fill = am4core.color('#367B25');
     hs.properties.fill = am4core.color('#ffd800');
 
     this.map = map;

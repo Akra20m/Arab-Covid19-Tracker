@@ -8,7 +8,6 @@ class PieChart extends React.Component {
   static contextType = CountryContext;
 
   componentDidMount() {
-    console.log(this.context.countries);
     let chart = am4core.create('piechartdiv', am4charts.PieChart);
 
     chart.data = this.context.countries.map((item) => {
@@ -33,8 +32,6 @@ class PieChart extends React.Component {
     hs.properties.scale = 1.5;
     let as = pieSeries.slices.template.states.getKey('active');
     as.properties.shiftRadius = 0;
-
-    // chart.legend = new am4charts.Legend();
 
     this.chart = chart;
   }

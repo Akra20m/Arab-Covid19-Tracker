@@ -7,7 +7,6 @@
 footer {
   margin: 0 auto;
   margin-top: 20px;
-  border-top: 1px solid white;
 }
 
 .footer-container {
@@ -23,7 +22,6 @@ footer {
   justify-content: space-between;
   margin: 0 auto;
   padding: 15px 5%;
-  /* min-height: 10vh; */
   max-width: 1440px;
 }
 
