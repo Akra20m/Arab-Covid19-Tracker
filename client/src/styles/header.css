@@ -19,6 +19,7 @@ nav.style1 {
 .nav-custom {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 0 auto;
   padding: 15px 5%;
   max-width: 1440px;
@@ -53,4 +54,25 @@ nav.style1 {
 
 .theme-item.second-theme {
   background-color: #393e46;
+}
+
+@media screen and (max-width: 1024px) {
+  .page-title h1 {
+    font-size: 1.6em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .page-title h1 {
+    font-size: 1.3em;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .page-title h1 {
+    font-size: 1.1em;
+  }
+  .nav-custom > p {
+    font-size: 17px;
+  }
 }
