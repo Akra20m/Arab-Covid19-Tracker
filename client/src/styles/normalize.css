@@ -2,8 +2,10 @@
 :root {
   --main-bg-color: #004445;
   --main-bg-color-1: #222831;
+  --main-bg-color-2: #f0f5f9;
   --main-txt-color: #ffd800;
   --main-txt-color-1: #00adb5;
+  --main-txt-color-2: #52616b;
 }
 /* Document
    ========================================================================== */
@@ -41,6 +43,12 @@ body {
   background-color: var(--main-bg-color-1);
   color: var(--main-txt-color-1);
 }
+
+.page.style2 {
+  background-color: var(--main-bg-color-2);
+  color: var(--main-txt-color-2);
+}
+
 /**
    * Render the `main` element consistently in IE.
    */

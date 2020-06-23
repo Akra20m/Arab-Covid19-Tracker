@@ -13,14 +13,23 @@ const Footer = () => {
         <div className='footer-custom'>
           <p>
             جميع الحقوق محفوظة. مصدر البيانات من
-            <a href='https://github.com/CSSEGISandData/COVID-19'>
+            <a
+              className={currentStyle === 'style2' && 'style2'}
+              href='https://github.com/CSSEGISandData/COVID-19'
+            >
               Johns Hopkins CSSE
             </a>
-            باستخدام <a href='https://covid19api.com/'>COVID 19 API</a>
+            باستخدام{' '}
+            <a
+              className={currentStyle === 'style2' && 'style2'}
+              href='https://covid19api.com/'
+            >
+              COVID 19 API
+            </a>
           </p>
           <p>
             آخر تحديث في
-            <span>
+            <span className={currentStyle === 'style2' && 'style2'}>
               {dateFormat(currentdate, 'dddd, mmmm dS, yyyy, h:MM:ss TT')}
             </span>
           </p>

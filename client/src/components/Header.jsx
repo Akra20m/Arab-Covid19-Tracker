@@ -24,17 +24,19 @@ const Header = ({ changeStyle }) => {
                 changeStyle('style1');
               }}
             ></div>
-            {/* <div
+            <div
               className='theme-item third-theme'
               onClick={() => {
                 changeStyle('style2');
               }}
-            ></div> */}
+            ></div>
           </div>
         </div>
       </nav>
-      <div className='page-title'>
-        <h1>إحصائيات انتشار فايروس كورونا (كوفيد-19) في البلدان العربية</h1>
+      <div className={'page-title'}>
+        <h1 className={currentStyle === 'style2' && 'style2'}>
+          إحصائيات انتشار فايروس كورونا (كوفيد-19) في البلدان العربية
+        </h1>
       </div>
     </header>
   );

@@ -1,7 +1,9 @@
 :root {
   --secondary-bg-color: #2c7873;
   --secondary-bg-color-1: #393e46;
+  --secondary-bg-color-2: #c9d6df;
   --secondary-txt-color: white;
+  --secondary-txt-color-2: #1e2022;
 }
 
 header {
@@ -14,6 +16,10 @@ nav {
 
 nav.style1 {
   background: var(--secondary-bg-color-1);
+}
+
+nav.style2 {
+  background: var(--secondary-bg-color-2);
 }
 
 .nav-custom {
@@ -31,6 +37,12 @@ nav.style1 {
 .page-title h1 {
   text-align: center;
   color: var(--secondary-txt-color);
+  margin: 20px auto;
+}
+
+.page-title h1.style2 {
+  text-align: center;
+  color: var(--secondary-txt-color-2);
   margin: 20px auto;
 }
 
@@ -54,6 +66,11 @@ nav.style1 {
 
 .theme-item.second-theme {
   background-color: #393e46;
+}
+
+.theme-item.third-theme {
+  background-color: #f0f5f9;
+  border: 1px solid #1e2022;
 }
 
 @media screen and (max-width: 1024px) {

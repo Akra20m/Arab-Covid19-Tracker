@@ -22,15 +22,21 @@ const MainData = () => {
   return (
     <div className={'data-container ' + currentStyle}>
       <div className='data-col'>
-        <h2>إجمالي الإصابات</h2>
+        <h2 className={currentStyle === 'style2' && 'style2'}>
+          إجمالي الإصابات
+        </h2>
         <p>{cases.toLocaleString('ar-EG')}</p>
       </div>
       <div className='data-col'>
-        <h2>إجمالي المتعافين</h2>
+        <h2 className={currentStyle === 'style2' && 'style2'}>
+          إجمالي المتعافين
+        </h2>
         <p>{recovered.toLocaleString('ar-EG')}</p>
       </div>
       <div className='data-col'>
-        <h2>إجمالي الوفيات</h2>
+        <h2 className={currentStyle === 'style2' && 'style2'}>
+          إجمالي الوفيات
+        </h2>
         <p>{deaths.toLocaleString('ar-EG')}</p>
       </div>
     </div>

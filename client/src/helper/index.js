@@ -22,3 +22,8 @@ export const translateName = {
   'united-arab-emirates': 'الإمارات',
   yemen: 'اليمن'
 };
+
+export const mapStyles = {
+  style1: { min: '#d9fbfc', max: '#00adb5' },
+  style2: { min: '#e8ebed', max: '#1e2022' }
+};

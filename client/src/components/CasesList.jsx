@@ -29,8 +29,15 @@ const CasesList = () => {
         <TabPanel>
           <ul className={'result-list ' + currentStyle}>
             {sortedCountriesConfirmed.map((country) => (
-              <li key={country.CountryCode} className='result-entry'>
-                <div className='country-name'>
+              <li
+                key={country.CountryCode}
+                className={'result-entry ' + currentStyle}
+              >
+                <div
+                  className={
+                    'country-name ' + currentStyle === 'style2' && 'style2'
+                  }
+                >
                   {translateName[country.Slug]}
                 </div>
                 <div>{country.TotalConfirmed.toLocaleString('ar-EG')}</div>
@@ -41,8 +48,15 @@ const CasesList = () => {
         <TabPanel>
           <ul className={'result-list ' + currentStyle}>
             {sortedCountriesRecovered.map((country) => (
-              <li key={country.CountryCode} className='result-entry'>
-                <div className='country-name'>
+              <li
+                key={country.CountryCode}
+                className={'result-entry ' + currentStyle}
+              >
+                <div
+                  className={
+                    'country-name ' + currentStyle === 'style2' && 'style2'
+                  }
+                >
                   {translateName[country.Slug]}
                 </div>
                 <div>{country.TotalRecovered.toLocaleString('ar-EG')}</div>
@@ -53,8 +67,15 @@ const CasesList = () => {
         <TabPanel>
           <ul className={'result-list ' + currentStyle}>
             {sortedCountriesDeaths.map((country) => (
-              <li key={country.CountryCode} className='result-entry'>
-                <div className='country-name'>
+              <li
+                key={country.CountryCode}
+                className={'result-entry ' + currentStyle}
+              >
+                <div
+                  className={
+                    'country-name ' + currentStyle === 'style2' && 'style2'
+                  }
+                >
                   {translateName[country.Slug]}
                 </div>
                 <div>{country.TotalDeaths.toLocaleString('ar-EG')}</div>

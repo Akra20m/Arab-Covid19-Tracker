@@ -1,7 +1,9 @@
 :root {
   --secondary-bg-color: #2c7873;
   --secondary-bg-color-1: #393e46;
+  --secondary-bg-color-2: #c9d6df;
   --secondary-txt-color: white;
+  --secondary-txt-color-2: #1e2022;
 }
 
 footer {
@@ -15,6 +17,10 @@ footer {
 
 .footer-container.style1 {
   background: var(--secondary-bg-color-1);
+}
+
+.footer-container.style2 {
+  background: var(--secondary-bg-color-2);
 }
 
 .footer-custom {
@@ -35,9 +41,17 @@ footer {
   margin: 0 5px;
 }
 
+.footer-custom a.style2 {
+  color: var(--secondary-txt-color-2);
+}
+
 .footer-custom span {
   color: var(--secondary-txt-color);
   margin: 0 5px;
+}
+
+.footer-custom span.style2 {
+  color: var(--secondary-txt-color-2);
 }
 
 @media screen and (max-width: 1024px) {

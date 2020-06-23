@@ -3,7 +3,7 @@ import * as am4core from '@amcharts/amcharts4/core';
 import * as am4maps from '@amcharts/amcharts4/maps';
 import am4geodata_worldLow from '@amcharts/amcharts4-geodata/worldLow';
 import { CountryContext } from '../contexts/CountryContext';
-import { translateName } from '../helper';
+import { translateName, mapStyles } from '../helper';
 
 class NewMap extends React.Component {
   static contextType = CountryContext;
@@ -50,9 +50,18 @@ class NewMap extends React.Component {
       property: 'fill',
       target: polygonSeries.mapPolygons.template,
 
-      min: am4core.color(this.context.currentStyle ? '#d9fbfc' : '#fffce8'),
-      max: am4core.color(this.context.currentStyle ? '#00adb5' : '#ffd800')
+      min: am4core.color(
+        this.context.currentStyle
+          ? mapStyles[this.context.currentStyle].min
+          : '#fffce8'
+      ),
+      max: am4core.color(
+        this.context.currentStyle
+          ? mapStyles[this.context.currentStyle].max
+          : '#ffd800'
+      )
     });
+
     map.zoomControl = new am4maps.ZoomControl();
 
     // add heat legend
@@ -64,7 +73,9 @@ class NewMap extends React.Component {
     heatLegend.orientation = 'horizontal';
     heatLegend.padding(20, 20, 20, 20);
     heatLegend.valueAxis.renderer.labels.template.fontSize = 10;
-    heatLegend.valueAxis.renderer.labels.template.fill = am4core.color('#fff');
+    heatLegend.valueAxis.renderer.labels.template.fill = am4core.color(
+      this.context.currentStyle === 'style2' ? '#000000' : '#ffffff'
+    );
     heatLegend.valueAxis.renderer.minGridDistance = 40;
 
     map.series.push(polygonSeries);
@@ -73,7 +84,9 @@ class NewMap extends React.Component {
   الإصابات {TotalConfirmed}\nالمتعافين {TotalRecovered}\nالوفيات {TotalDeaths}`;
     let hs = polygonTemplate.states.create('hover');
     hs.properties.fill = am4core.color(
-      this.context.currentStyle ? '#00adb5' : '#ffd800'
+      this.context.currentStyle
+        ? mapStyles[this.context.currentStyle].max
+        : '#ffd800'
     );
 
     this.map = map;
@@ -92,7 +105,7 @@ class NewMap extends React.Component {
 
   render() {
     return (
-      <div className='map-container'>
+      <div className={'map-container ' + this.context.currentStyle}>
         <div
           className={'map-custom ' + this.context.currentStyle}
           id='mapdiv'
