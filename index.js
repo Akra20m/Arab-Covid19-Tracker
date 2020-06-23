@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const sslRedirect = require('heroku-ssl-redirect');
-
 const { json } = require('body-parser');
 const Axios = require('axios');
 const cron = require('node-cron');

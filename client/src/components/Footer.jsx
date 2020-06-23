@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
-import dateFormat from 'dateformat';
+import moment from 'moment';
+import 'moment/locale/ar';
 import { CountryContext } from '../contexts/CountryContext';
 
 import '../styles/footer.css';
 
 const Footer = () => {
   const { currentdate, currentStyle } = useContext(CountryContext);
+  const mom = moment(currentdate);
+  moment.locale('ar');
 
   return (
     <footer>
@@ -28,9 +31,9 @@ const Footer = () => {
             </a>
           </p>
           <p>
-            آخر تحديث في
+            آخر تحديث في{' '}
             <span className={currentStyle === 'style2' && 'style2'}>
-              {dateFormat(currentdate, 'dddd, mmmm dS, yyyy, h:MM:ss TT')}
+              {mom.format('LLLL')}
             </span>
           </p>
         </div>
