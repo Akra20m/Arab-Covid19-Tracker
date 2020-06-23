@@ -7,8 +7,7 @@ import { translateName } from '../helper';
 
 class NewMap extends React.Component {
   static contextType = CountryContext;
-
-  componentDidMount() {
+  createMap() {
     let map = am4core.create('mapdiv', am4maps.MapChart);
     map.geodata = am4geodata_worldLow;
     map.projection = new am4maps.projections.Miller();
@@ -50,8 +49,9 @@ class NewMap extends React.Component {
     polygonSeries.heatRules.push({
       property: 'fill',
       target: polygonSeries.mapPolygons.template,
-      min: am4core.color('#87dfd6'),
-      max: am4core.color('#8787df')
+
+      min: am4core.color(this.context.currentStyle ? '#d9fbfc' : '#fffce8'),
+      max: am4core.color(this.context.currentStyle ? '#00adb5' : '#ffd800')
     });
     map.zoomControl = new am4maps.ZoomControl();
 
@@ -70,13 +70,20 @@ class NewMap extends React.Component {
     map.series.push(polygonSeries);
     let polygonTemplate = polygonSeries.mapPolygons.template;
     polygonTemplate.tooltipText = `[bold]{name}[/]
-    الإصابات {TotalConfirmed}\nالمتعافين {TotalRecovered}\nالوفيات {TotalDeaths}`;
+  الإصابات {TotalConfirmed}\nالمتعافين {TotalRecovered}\nالوفيات {TotalDeaths}`;
     let hs = polygonTemplate.states.create('hover');
-    hs.properties.fill = am4core.color('#ffd800');
+    hs.properties.fill = am4core.color(
+      this.context.currentStyle ? '#00adb5' : '#ffd800'
+    );
 
     this.map = map;
   }
-
+  componentDidMount() {
+    this.createMap();
+  }
+  componentDidUpdate() {
+    this.createMap();
+  }
   componentWillUnmount() {
     if (this.map) {
       this.map.dispose();

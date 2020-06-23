@@ -245,7 +245,7 @@
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 426px) {
   .main-container {
     flex-wrap: wrap;
     padding: 5px;

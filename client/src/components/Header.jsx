@@ -24,6 +24,12 @@ const Header = ({ changeStyle }) => {
                 changeStyle('style1');
               }}
             ></div>
+            {/* <div
+              className='theme-item third-theme'
+              onClick={() => {
+                changeStyle('style2');
+              }}
+            ></div> */}
           </div>
         </div>
       </nav>
