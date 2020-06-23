@@ -1,5 +1,7 @@
 const express = require('express');
 const cors = require('cors');
+const sslRedirect = require('heroku-ssl-redirect');
+
 const { json } = require('body-parser');
 const Axios = require('axios');
 const cron = require('node-cron');
@@ -52,7 +54,7 @@ app.use(cors());
 app.use(json());
 
 cron.schedule('0 */2 * * *', () => {
-  //running a task at minute 0 past every 2nd hour.
+  //running a task every two hours at minute 0.
   let result = Axios.get('https://api.covid19api.com/summary')
     .then((res) => {
       const { Countries } = res.data;
@@ -75,6 +77,9 @@ cron.schedule('0 */2 * * *', () => {
       console.log(err.response);
     });
 });
+
+// enable ssl redirect
+app.use(sslRedirect());
 
 app.get('/api/', (req, res) => {
   client.get('key', (err, reply) => {
