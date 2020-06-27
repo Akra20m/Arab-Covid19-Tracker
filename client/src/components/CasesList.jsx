@@ -33,11 +33,7 @@ const CasesList = () => {
                 key={country.CountryCode}
                 className={'result-entry ' + currentStyle}
               >
-                <div
-                  className={
-                    'country-name ' + currentStyle === 'style2' && 'style2'
-                  }
-                >
+                <div className={`country-name ${currentStyle}`}>
                   {translateName[country.Slug]}
                 </div>
                 <div>{country.TotalConfirmed.toLocaleString('ar-EG')}</div>
@@ -52,11 +48,7 @@ const CasesList = () => {
                 key={country.CountryCode}
                 className={'result-entry ' + currentStyle}
               >
-                <div
-                  className={
-                    'country-name ' + currentStyle === 'style2' && 'style2'
-                  }
-                >
+                <div className={`country-name ${currentStyle}`}>
                   {translateName[country.Slug]}
                 </div>
                 <div>{country.TotalRecovered.toLocaleString('ar-EG')}</div>
@@ -71,11 +63,7 @@ const CasesList = () => {
                 key={country.CountryCode}
                 className={'result-entry ' + currentStyle}
               >
-                <div
-                  className={
-                    'country-name ' + currentStyle === 'style2' && 'style2'
-                  }
-                >
+                <div className={`country-name ${currentStyle}`}>
                   {translateName[country.Slug]}
                 </div>
                 <div>{country.TotalDeaths.toLocaleString('ar-EG')}</div>

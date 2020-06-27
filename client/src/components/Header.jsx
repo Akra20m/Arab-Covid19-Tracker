@@ -11,7 +11,7 @@ const Header = ({ changeStyle }) => {
         <div className='nav-custom'>
           <p>كوفيد-19 الوطن العربي</p>
           <div className='theme-container'>
-            <p>لون الخلفية</p>
+            <p>سمة</p>
             <div
               className='theme-item first-theme'
               onClick={() => {
